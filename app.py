@@ -67,9 +67,13 @@ if audio_file is not None:
             time.sleep(2)  # Simule un temps de traitement
             is_ai_generated = random.choice([True, False])  # Faux résultat pour test
 
-        # Nouvelle image de spectrogramme depuis une source fiable
-        spectrogram_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Spectrogram.png/800px-Spectrogram.png"
-        st.image(spectrogram_url, caption="Music Spectrogram")
+        # Affichage du spectrogramme avec une image locale de secours
+        spectrogram_url = "https://upload.wikimedia.org/wikipedia/commons/4/4e/Spectrogram_of_the_Word_Speech.png"
+        try:
+            st.image(spectrogram_url, caption="Music Spectrogram")
+        except Exception as e:
+            st.warning("Failed to load online image, using local backup.")
+            st.image("spectrogram.png", caption="Music Spectrogram")  # Image locale en backup
 
         # Message de détection
         if is_ai_generated:
