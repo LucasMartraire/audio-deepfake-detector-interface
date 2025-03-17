@@ -21,7 +21,6 @@ if audio_file is not None:
 
         # Message de détection
         if is_ai_generated:
-            st.markdown('<div style="background-color: red; padding: 10px; text-align: center; font-size: 20px; color: white;">Cette musique est générée par l'IA</div>', unsafe_allow_html=True)
+            st.markdown('<div style="background-color: red; padding: 10px; text-align: center; font-size: 20px; color: white;">Cette musique est générée par l\'IA</div>', unsafe_allow_html=True)
         else:
             st.markdown('<div style="background-color: green; padding: 10px; text-align: center; font-size: 20px; color: white;">Cette musique n'est pas générée par l'IA</div>', unsafe_allow_html=True)
-
