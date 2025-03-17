@@ -67,8 +67,8 @@ if audio_file is not None:
             time.sleep(2)  # Simule un temps de traitement
             is_ai_generated = random.choice([True, False])  # Faux résultat pour test
 
-        # Affichage du spectrogramme factice
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Spectrogram-19thC.png/800px-Spectrogram-19thC.png", caption="Music Spectrogram")
+        # Affichage du spectrogramme avec une nouvelle image valide
+        st.image("https://upload.wikimedia.org/wikipedia/commons/3/3a/Example_spectrogram.png", caption="Music Spectrogram")
 
         # Message de détection
         if is_ai_generated:
