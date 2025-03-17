@@ -1,23 +1,27 @@
 import streamlit as st
+import time
+import random
 
-import numpy as np
-import pandas as pd
+st.title("Détection de musique générée par l'IA")
 
-st.markdown("""# This is a header
-## This is a sub header
-This is text""")
+# Upload de fichier audio
+audio_file = st.file_uploader("Déposez une musique ici", type=["mp3", "wav", "ogg"])
 
-df = pd.DataFrame({
-    'first column': list(range(1, 11)),
-    'second column': np.arange(10, 101, 10)
-})
+if audio_file is not None:
+    st.audio(audio_file, format="audio/mp3")
 
-# this slider allows the user to select a number of lines
-# to display in the dataframe
-# the selected value is returned by st.slider
-line_count = st.slider('Select a line count', 1, 10, 3)
+    # Bouton de lecture avec élément d'attente
+    if st.button("Analyser la musique"):
+        with st.spinner('Analyse en cours...'):
+            time.sleep(2)  # Simule un temps de traitement
+            is_ai_generated = random.choice([True, False])  # Faux résultat pour test
 
-# and used to select the displayed lines
-head_df = df.head(line_count)
+        # Affichage du spectrogramme factice
+        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Spectrogram-19thC.png/800px-Spectrogram-19thC.png", caption="Spectrogramme de la musique")
 
-head_df
+        # Message de détection
+        if is_ai_generated:
+            st.markdown('<div style="background-color: red; padding: 10px; text-align: center; font-size: 20px; color: white;">Cette musique est générée par l'IA</div>', unsafe_allow_html=True)
+        else:
+            st.markdown('<div style="background-color: green; padding: 10px; text-align: center; font-size: 20px; color: white;">Cette musique n'est pas générée par l'IA</div>', unsafe_allow_html=True)
+
