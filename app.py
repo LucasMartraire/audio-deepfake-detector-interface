@@ -10,11 +10,11 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #121212;
+        background-color: #181818;
         color: #FFFFFF;
     }
     .stApp {
-        background-color: #121212;
+        background-color: #181818;
     }
     .title {
         text-align: center;
@@ -28,6 +28,8 @@ st.markdown(
         font-weight: bold;
         padding: 15px;
         border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        margin-top: 20px;
     }
     .ai {
         background-color: #FF0000;
@@ -37,7 +39,16 @@ st.markdown(
         background-color: #1DB954;
         color: white;
     }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 100%;
+        background-color: #000000;
+    }
     </style>
+    <div class="sidebar"></div>
     """,
     unsafe_allow_html=True
 )
