@@ -23,7 +23,7 @@ if uploaded_file:
 
     files = {"file": (uploaded_file.name, uploaded_file, uploaded_file.type)}
     print(SERVICE_URL)
-    response = requests.post(f"{SERVICE_URL}/predict", files=files)
+    response = requests.post("https://adf-190527601687.europe-west9.run.app/predict", files=files)
 
     # response = requests.post("http://127.0.0.1:8000/predict",
     #                          json={"file_path": temp_audio_path})
